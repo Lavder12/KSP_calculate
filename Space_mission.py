@@ -1,4 +1,5 @@
 from Orbit import Orbit
+from Return import Returner
 
 
 class SpaceMission:
@@ -24,6 +25,10 @@ class SpaceMission:
 
 
         }
+        self.returner_data = {
+            ('kerbin', 'moho'): Returner('kerbin', 'moho', 3400, low_orbit=4120, returner=4500),
+
+        }
 
     def make_orbit(self):
         change_from = input('From: ').lower()
@@ -32,6 +37,17 @@ class SpaceMission:
         key = (change_from, change_to)
         if key in self.orbit_data:
             self.orbit_data[key].display_orbit_details()
+        else:
+            print(f"No data available for orbit from {change_from} to {change_to}.")
+
+
+    def make_returner(self):
+        change_from = input('From: ').lower()
+        change_to = input('To: ').lower()
+
+        key = (change_from, change_to)
+        if key in self.returner_data:
+            self.returner_data[key].display_returner_details()
         else:
             print(f"No data available for orbit from {change_from} to {change_to}.")
 
@@ -56,7 +72,7 @@ class SpaceMission:
             elif command == '3':
                 print("Aerobraking functionality not yet implemented.")
             elif command == '4':
-                print("Return functionality not yet implemented.")
+                self.make_returner()
             elif command == '5':
                 print("Exiting program. Goodbye!")
             else:
