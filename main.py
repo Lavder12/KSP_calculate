@@ -1,41 +1,37 @@
 class Orbit:
-    def __init__(self, change_from, change_to, take_off_delta, low_orbit=None, total_delta=None):
+    def __init__(self, change_from, change_to, take_off_delta, low_orbit=None):
         self.change_from = change_from
         self.change_to = change_to
         self.take_off_delta = take_off_delta
         self.low_orbit = low_orbit
-        self.total_delta = total_delta
+
 
     def display_orbit_details(self):
+        total_delta = self.low_orbit + self.take_off_delta
         print(f"TakeOff from {self.change_from}: {self.take_off_delta} m/s")
-        if self.low_orbit:
-            print(f"Transit from {self.change_from} low orbit to {self.change_to} low orbit: {self.low_orbit} m/s")
-        if self.total_delta:
-            print(f"Transit from {self.change_from} to {self.change_to} total: {self.total_delta} m/s")
-
+        print(f"Transit from {self.change_from} low orbit to {self.change_to} low orbit: {self.low_orbit} m/s")
+        print(f"Transit from {self.change_from} to {self.change_to} total: {total_delta} m/s")
 
 class SpaceMission:
     def __init__(self):
         self.orbit_data = {
-            ('kerbin', 'kerbin'): Orbit('kerbin', 'kerbin', 3400, total_delta=3400),
-            ('kerbin', 'mun'): Orbit('kerbin', 'mun', 3400, low_orbit=1170, total_delta=4570),
-            ('kerbin', 'minmus'): Orbit('kerbin', 'minmus', 3400, low_orbit='1090-1430', total_delta = '4490-4830'),
-            ('kerbin', 'duna'): Orbit('kerbin', 'duna', 3400, low_orbit='1690-1700', total_delta = '5090-5100'),
-            ('kerbin', 'ike'): Orbit('kerbin','ike',3400,low_orbit= 4940, total_delta='4940-4950'),
-            ('kerbin', 'dres'): Orbit('kerbin', 'dres', 3400, low_orbit= '2850-3860', total_delta = '6250-7260'),
-            ('kerbin', 'jool'): Orbit('kerbin', 'jool', 3400, low_orbit=4940, total_delta='4940-4950'),
-
-
-
-
-
-
-
-
-
-
-
-
+            ('kerbin', 'moho'): Orbit('kerbin', 'moho', 3400, low_orbit=4120),
+            ('kerbin', 'eve'): Orbit('kerbin', 'eve', 3400, low_orbit=2450),
+            ('kerbin', 'gilly'): Orbit('kerbin', 'gilly', 3400, low_orbit=1800),
+            ('kerbin', 'kerbin'): Orbit('kerbin', 'kerbin', 3400),
+            ('kerbin', 'mun'): Orbit('kerbin', 'mun', 3400, low_orbit=1170),
+            ('kerbin', 'minmus'): Orbit('kerbin', 'minmus', 3400, low_orbit=1090),
+            ('kerbin', 'duna'): Orbit('kerbin', 'duna', 3400, low_orbit=1690),
+            ('kerbin', 'ike'): Orbit('kerbin','ike',3400,low_orbit = 1540),
+            ('kerbin', 'dres'): Orbit('kerbin', 'dres', 3400, low_orbit = 2850),
+            ('kerbin', 'jool'): Orbit('kerbin', 'jool', 3400, low_orbit= 4900),
+            ('kerbin', 'laythe'): Orbit('kerbin', 'laythe', 3400, low_orbit=7490),
+            ('kerbin', 'vall'): Orbit('kerbin', 'vall', 3400, low_orbit=7020),
+            ('kerbin', 'tylo'): Orbit('kerbin', 'tylo', 3400, low_orbit=6990),
+            ('kerbin', 'bop'): Orbit('kerbin', 'bop', 3400, low_orbit=6610),
+            ('kerbin', 'pol'): Orbit('kerbin', 'pol', 3400, low_orbit=3040),
+            ('kerbin', 'eeloo'): Orbit('kerbin', 'eeloo', 3400, low_orbit=3460),
+            ('kerbin', 'kerbol'): Orbit('kerbin', 'kerbol', 3400, low_orbit=20650),
 
 
         }
